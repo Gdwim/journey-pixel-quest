@@ -13,17 +13,13 @@ interface TripCardProps {
 const TripCard = ({ trip }: TripCardProps) => {
   return (
     <Card className="overflow-hidden hover-scale border-border shadow-[var(--shadow-elegant)] transition-all duration-300 hover:shadow-[var(--shadow-lift)]">
-      <div className="relative h-64 overflow-hidden">
+      <div className="relative h-64 overflow-hidden rounded-t-xl">
         <img 
           src={trip.image} 
           alt={trip.title}
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
-        <div className="absolute top-4 right-4">
-          <Badge className="bg-primary text-primary-foreground font-semibold px-4 py-2">
-            {trip.price}
-          </Badge>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>
       <CardContent className="p-6 space-y-4">
         <div>
@@ -60,9 +56,9 @@ const TripCard = ({ trip }: TripCardProps) => {
           </AccordionItem>
         </Accordion>
         
-        <Link to={`/trip/${trip.id}`} className="block">
-          <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold shadow-md hover:shadow-lg transition-all group">
-            View Details & Customize Trip
+        <Link to={`/customize/${trip.id}`} className="block">
+          <Button className="w-full bg-gradient-to-r from-primary to-accent hover:shadow-[var(--shadow-glow)] text-primary-foreground font-semibold shadow-md transition-all group">
+            ✨ Customize Your Trip
             <ChevronRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Button>
         </Link>

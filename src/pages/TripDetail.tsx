@@ -40,9 +40,6 @@ const TripDetail = () => {
                 Back to All Trips
               </Button>
             </Link>
-            <Badge className="bg-primary text-primary-foreground font-semibold px-4 py-2 mb-4">
-              {trip.price}
-            </Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">{trip.title}</h1>
             <div className="flex flex-wrap items-center gap-4 text-foreground/90">
               <div className="flex items-center gap-2">
@@ -94,26 +91,15 @@ const TripDetail = () => {
             <Card className="border-border shadow-[var(--shadow-elegant)] sticky top-6">
               <CardContent className="p-6 space-y-4">
                 <div className="space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">Ready to Explore?</h3>
+                  <h3 className="text-xl font-bold text-foreground">✨ Ready to Explore?</h3>
                   <p className="text-foreground/70">
-                    Customize this trip to match your preferences and budget.
+                    Set your budget and customize this trip to match your dream adventure!
                   </p>
-                </div>
-                
-                <div className="space-y-2 py-4 border-y border-border">
-                  <div className="flex justify-between items-center">
-                    <span className="text-foreground/70">Starting from</span>
-                    <span className="text-2xl font-bold text-primary">{trip.price}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <Calendar className="w-4 h-4" />
-                    <span>per person</span>
-                  </div>
                 </div>
 
                 <Link to={`/customize/${trip.id}`}>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg py-6 shadow-md hover:shadow-lg transition-all">
-                    Customize This Trip
+                  <Button className="w-full bg-gradient-to-r from-primary to-accent hover:shadow-[var(--shadow-glow)] text-primary-foreground font-semibold text-lg py-6 shadow-md transition-all">
+                    🎯 Customize Your Budget
                   </Button>
                 </Link>
                 

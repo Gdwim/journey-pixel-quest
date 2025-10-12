@@ -24,9 +24,9 @@ const Index = () => {
         <div className="relative h-full flex items-center justify-center px-6">
           <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
-              Discover Your Next
+              ✈️ Discover Your Next
               <span className="block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                Dream Adventure
+                Epic Adventure 🌍
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
@@ -36,9 +36,9 @@ const Index = () => {
             <Button 
               onClick={scrollToTrips}
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all mt-8"
+              className="bg-gradient-to-r from-primary to-accent hover:shadow-[var(--shadow-glow)] text-primary-foreground font-semibold text-lg px-8 py-6 shadow-lg transition-all mt-8"
             >
-              Explore Our Trips
+              🚀 Explore Wild Trips
             </Button>
           </div>
         </div>
