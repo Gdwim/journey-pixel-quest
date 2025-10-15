@@ -93,6 +93,26 @@ const Index = () => {
           </Button>
         </div>
       </section>
+
+      {/* Custom Destination Section */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto text-center space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            🌍 Don't See Your Dream Destination?
+          </h2>
+          <p className="text-lg text-foreground/70">
+            No problem! We have local connections worldwide. Tell us where you want to go, 
+            and we'll connect you with trusted locals who can craft a unique, cost-saving experience just for you.
+          </p>
+          <Button 
+            onClick={() => window.location.href = '/customize/custom'}
+            size="lg"
+            className="bg-gradient-to-r from-primary to-accent hover:shadow-[var(--shadow-glow)] text-primary-foreground font-semibold text-lg px-8 py-6 shadow-lg transition-all"
+          >
+            📍 Request Custom Destination
+          </Button>
+        </div>
+      </section>
     </div>
   );
 };

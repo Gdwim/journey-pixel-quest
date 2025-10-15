@@ -14,7 +14,8 @@ import { toast } from "sonner";
 const CustomizationForm = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const trip = trips.find(t => t.id === id);
+  const isCustomDestination = id === 'custom';
+  const trip = isCustomDestination ? null : trips.find(t => t.id === id);
   
   const [formData, setFormData] = useState({
     name: "",
@@ -28,7 +29,7 @@ const CustomizationForm = () => {
   const [budgetRange, setBudgetRange] = useState([5000, 15000]);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  if (!trip) {
+  if (!isCustomDestination && !trip) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center">
@@ -47,7 +48,7 @@ const CustomizationForm = () => {
 
     try {
       const { error } = await supabase.from("trip_inquiries").insert({
-        trip_name: trip.title,
+        trip_name: isCustomDestination ? "Custom Destination Request" : trip!.title,
         name: formData.name,
         email: formData.email,
         phone: formData.phone,
@@ -75,9 +76,9 @@ const CustomizationForm = () => {
       });
       setBudgetRange([5000, 15000]);
       
-      // Navigate back to trip detail after a short delay
+      // Navigate back after a short delay
       setTimeout(() => {
-        navigate(`/trip/${id}`);
+        navigate(isCustomDestination ? '/' : `/trip/${id}`);
       }, 2000);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -92,24 +93,28 @@ const CustomizationForm = () => {
   return (
     <div className="min-h-screen bg-background py-12">
       <div className="max-w-4xl mx-auto px-6">
-        <Link to={`/trip/${id}`}>
+        <Link to={isCustomDestination ? "/" : `/trip/${id}`}>
           <Button variant="secondary" className="mb-6">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to Trip Details
+            {isCustomDestination ? "Back to Home" : "Back to Trip Details"}
           </Button>
         </Link>
 
         <Card className="border-border shadow-[var(--shadow-elegant)]">
           <CardHeader className="space-y-2 pb-6">
             <CardTitle className="text-3xl font-bold text-foreground">
-              Customize Your Trip
+              {isCustomDestination ? "Request Your Custom Destination" : "Customize Your Trip"}
             </CardTitle>
-            <p className="text-foreground/70 text-lg">
-              {trip.title} - {trip.location}
-            </p>
+            {!isCustomDestination && (
+              <p className="text-foreground/70 text-lg">
+                {trip!.title} - {trip!.location}
+              </p>
+            )}
             <p className="text-muted-foreground">
-              Share your budget and preferences. We'll connect you with local guides who'll create a money-saving itinerary 
-              with insider tips, safer accommodations, and hidden adventures. Includes up to 3 revisions for $120.
+              {isCustomDestination
+                ? "Tell us where you want to go! We'll connect you with trusted locals worldwide who can craft a personalized, budget-friendly itinerary. You get up to 3 revisions for just $120."
+                : "Share your budget and preferences. We'll connect you with local guides who'll create a money-saving itinerary with insider tips, safer accommodations, and hidden adventures. Includes up to 3 revisions for $120."
+              }
             </p>
           </CardHeader>
           <CardContent>
@@ -212,14 +217,21 @@ const CustomizationForm = () => {
 
               {/* Special Requests */}
               <div className="space-y-2">
-                <Label htmlFor="requests">Special Requests or Preferences</Label>
+                <Label htmlFor="requests">
+                  {isCustomDestination ? "Destination & Special Requests *" : "Special Requests or Preferences"}
+                </Label>
                 <Textarea
                   id="requests"
                   value={formData.specialRequests}
                   onChange={(e) => setFormData({ ...formData, specialRequests: e.target.value })}
-                  placeholder="Tell us about any dietary restrictions, accessibility needs, activities you'd like to include, or any other special requests..."
+                  placeholder={
+                    isCustomDestination
+                      ? "Please specify your dream destination and tell us about your interests, dietary restrictions, accessibility needs, activities you'd love to include, or any other special requests..."
+                      : "Tell us about any dietary restrictions, accessibility needs, activities you'd like to include, or any other special requests..."
+                  }
                   rows={5}
                   className="border-border resize-none"
+                  required={isCustomDestination}
                 />
               </div>
 
