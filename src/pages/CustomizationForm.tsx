@@ -108,7 +108,8 @@ const CustomizationForm = () => {
               {trip.title} - {trip.location}
             </p>
             <p className="text-muted-foreground">
-              Tell us about your preferences and our travel experts will create a personalized itinerary for you.
+              Share your budget and preferences. We'll connect you with local guides who'll create a money-saving itinerary 
+              with insider tips, safer accommodations, and hidden adventures. Includes up to 3 revisions for $120.
             </p>
           </CardHeader>
           <CardContent>
@@ -232,7 +233,7 @@ const CustomizationForm = () => {
                   {isSubmitting ? "Submitting..." : "Submit Inquiry"}
                 </Button>
                 <p className="text-center text-sm text-muted-foreground mt-4">
-                  Our travel experts will review your preferences and contact you within 24 hours with a personalized itinerary and quote.
+                  Our local guides will craft your cost-saving itinerary within 24 hours. $120 includes up to 3 revisions. Additional revisions available at extra cost.
                 </p>
               </div>
             </form>

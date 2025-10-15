@@ -91,9 +91,10 @@ const TripDetail = () => {
             <Card className="border-border shadow-[var(--shadow-elegant)] sticky top-6">
               <CardContent className="p-6 space-y-4">
                 <div className="space-y-3">
-                  <h3 className="text-xl font-bold text-foreground">✨ Ready to Explore?</h3>
+                  <h3 className="text-xl font-bold text-foreground">💰 Save Money with Local Guides</h3>
                   <p className="text-foreground/70">
-                    Set your budget and customize this trip to match your dream adventure!
+                    Our local experts will craft a cost-saving itinerary, show you safer places to stay, and unlock experiences tourists miss. 
+                    Up to 3 revisions for just $120!
                   </p>
                 </div>
 
@@ -104,7 +105,7 @@ const TripDetail = () => {
                 </Link>
                 
                 <p className="text-xs text-center text-muted-foreground">
-                  Free consultation • No commitment required
+                  $120 for up to 3 revisions • Extra revisions available
                 </p>
               </CardContent>
             </Card>

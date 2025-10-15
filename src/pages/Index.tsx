@@ -24,14 +24,14 @@ const Index = () => {
         <div className="relative h-full flex items-center justify-center px-6">
           <div className="max-w-4xl mx-auto text-center space-y-6 animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight">
-              ✈️ Discover Your Next
+              ✈️ Save Money on Your
               <span className="block bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
-                Epic Adventure 🌍
+                Dream Vacation 💰
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-              Curated travel experiences designed to create unforgettable memories. 
-              From ancient ruins to tropical paradises, your perfect journey awaits.
+              Connect with local guides who create cost-saving trips, share safer hidden gems, and unlock authentic experiences you won't find anywhere else. 
+              Save money while traveling better.
             </p>
             <Button 
               onClick={scrollToTrips}
@@ -52,8 +52,8 @@ const Index = () => {
               Featured Destinations
             </h2>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-              Handpicked journeys that showcase the world's most captivating places. 
-              Each trip is carefully curated to offer authentic experiences and lasting memories.
+              Our local guides know the best spots, cost-saving secrets, and hidden adventures. 
+              Browse destinations and customize your perfect trip with insider knowledge.
             </p>
           </div>
           
@@ -75,11 +75,13 @@ const Index = () => {
       <section className="py-20 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center space-y-6">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Ready to Start Your Journey?
+            💡 How We Help You Save Money
           </h2>
           <p className="text-lg text-foreground/70">
-            Our travel experts are here to help you create the perfect customized itinerary 
-            tailored to your preferences and budget.
+            We connect you with locals in each destination who craft budget-friendly itineraries, 
+            share safer neighborhoods, and reveal activities tourists never find. 
+            Customize your trip with up to <strong className="text-foreground">3 revisions for just $120</strong>. 
+            That's how we make our money—by helping you save on yours.
           </p>
           <Button 
             onClick={scrollToTrips}
