@@ -13,28 +13,32 @@ interface TripCardProps {
 const TripCard = ({ trip }: TripCardProps) => {
   return (
     <Card className="overflow-hidden hover-scale border-border shadow-[var(--shadow-elegant)] transition-all duration-300 hover:shadow-[var(--shadow-lift)]">
-      <div className="relative h-64 overflow-hidden rounded-t-xl">
-        <img 
-          src={trip.image} 
-          alt={trip.title}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-      </div>
+      <Link to={`/trip/${trip.id}`} className="block">
+        <div className="relative h-64 overflow-hidden rounded-t-xl">
+          <img 
+            src={trip.image} 
+            alt={trip.title}
+            className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+        </div>
+      </Link>
       <CardContent className="p-6 space-y-4">
-        <div>
-          <h3 className="text-2xl font-bold text-foreground mb-2">{trip.title}</h3>
-          <div className="flex items-center gap-4 text-muted-foreground text-sm">
-            <div className="flex items-center gap-1">
-              <MapPin className="w-4 h-4" />
-              <span>{trip.location}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <Clock className="w-4 h-4" />
-              <span>{trip.duration}</span>
+        <Link to={`/trip/${trip.id}`} className="block">
+          <div>
+            <h3 className="text-2xl font-bold text-foreground mb-2 hover:text-primary transition-colors">{trip.title}</h3>
+            <div className="flex items-center gap-4 text-muted-foreground text-sm">
+              <div className="flex items-center gap-1">
+                <MapPin className="w-4 h-4" />
+                <span>{trip.location}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                <span>{trip.duration}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
         
         <p className="text-foreground/80 leading-relaxed">{trip.description}</p>
         
